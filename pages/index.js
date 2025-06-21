@@ -17,7 +17,7 @@ export default function Home() {
     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
       <h1>MotoGPs!</h1>
       <p>Welcome to Moto-GPs</p>
-      <Link href="/gps">
+      <Link href="/gps.js">
         <button>Start Navigation</button>
       </Link>
     </div>
