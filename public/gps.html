@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moto-GPS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div id="info">
+    <div>Speed: <span id="speed">--</span> km/h</div>
+    <div>Speed Limit: <span id="limit">--</span> km/h</div>
+    <div>Distance: <span id="distance">--</span> km</div>
+    <div>Top Speed: <span id="topSpeed">--</span> km/h</div>
+    <div>Avg Speed: <span id="avgSpeed">--</span> km/h</div>
+  </div>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="gps.js"></script>
+</body>
+</html>
