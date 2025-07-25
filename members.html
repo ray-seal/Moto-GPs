@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload, Like, and Comment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .post {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    .like-button {
+      color: #007BFF;
+      cursor: pointer;
+    }
+    .like-button:hover {
+      text-decoration: underline;
+    }
+    .comment-section {
+      margin-top: 10px;
+    }
+    .comment {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload, Like, and Comment</h1>
+
+  <!-- File Upload Section -->
+  <form id="uploadForm">
+    <label for="fileUpload">Upload a file:</label>
+    <input type="file" id="fileUpload" name="fileUpload" accept="image/*,video/*">
+    <button type="submit">Upload</button>
+  </form>
+
+  <hr>
+
+  <!-- Example Post -->
+  <div class="post">
+    <h2>Example Post</h2>
+    <p>This is an example post. Users can like and comment below.</p>
+    <span class="like-button" onclick="likePost()">👍 Like (<span id="likeCount">0</span>)</span>
+
+    <!-- Comment Section -->
+    <div class="comment-section">
+      <h3>Comments</h3>
+      <div id="comments"></div>
+      <textarea id="commentInput" placeholder="Write a comment..." rows="3" style="width: 100%;"></textarea>
+      <button onclick="addComment()">Add Comment</button>
+    </div>
+  </div>
+
+  <script>
+    let likeCount = 0;
+
+    // Function to handle likes
+    function likePost() {
+      likeCount++;
+      document.getElementById('likeCount').textContent = likeCount;
+    }
+
+    // Function to add comments
+    function addComment() {
+      const commentInput = document.getElementById('commentInput');
+      const commentText = commentInput.value.trim();
+
+      if (commentText) {
+        const commentsDiv = document.getElementById('comments');
+        const newComment = document.createElement('div');
+        newComment.className = 'comment';
+        newComment.textContent = commentText;
+        commentsDiv.appendChild(newComment);
+        commentInput.value = '';
+      }
+    }
+
+    // Handle file upload (basic example)
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('fileUpload');
+      if (fileInput.files.length > 0) {
+        alert(`File "${fileInput.files[0].name}" uploaded successfully!`);
+      } else {
+        alert('Please select a file to upload.');
+      }
+    });
+  </script>
+</body>
+</html>
